@@ -711,6 +711,10 @@ ICONCSS;
 		/** @var \WP_Post_Type */
 		$pto = get_post_type_object( $this->cpt->post_type );
 
+		if(is_null($pto)){
+			return $messages;	
+		}
+		
 		$messages[ $this->cpt->post_type ] = [
 			1 => sprintf(
 				( $pto->publicly_queryable ? '%1$s updated. <a href="%2$s">View %3$s</a>' : '%1$s updated.' ),
