@@ -619,6 +619,10 @@ class PostTypeAdmin {
 		/** @var \WP_Post_Type */
 		$pto = get_post_type_object( $this->cpt->post_type );
 
+		if(is_null($pto)){
+			return $items;	
+		}
+		
 		if ( ! current_user_can( $pto->cap->edit_posts ) ) {
 			return $items;
 		}
